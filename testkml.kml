@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>File Representing Robot Game!</name>
+<open>1</open>
+<description>KML format for robot game scenarios!</description>
+    <Style id="apple">
+      <IconStyle>
+        <Icon>
+          <href>apple.png</href>
+        </Icon>
+      </IconStyle>
+      <LineStyle>
+        <width>2</width>
+      </LineStyle>
+    </Style>
+    <Style id="banana">
+      <IconStyle>
+        <Icon>
+          <href>banana.png</href>
+        </Icon>
+      </IconStyle>
+      <LineStyle>
+        <width>2</width>
+      </LineStyle>
+    </Style>
+    <Style id="robot">
+      <IconStyle>
+        <Icon>
+          <href>robot.png</href>
+        </Icon>
+      </IconStyle>
+      <LineStyle>
+        <width>2</width>
+      </LineStyle>
+    </Style>
+    <Folder><name>Nodes</name>
+      <visibility>0</visibility>
+      <description>This is where the Nodes are stored</description>
+<Placemark>
+<name>Node1</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.167Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.19589389346247,32.10152879327731,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node2</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.20319591121872,32.10318254621849,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node3</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.20752617756255,32.1025646605042,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node4</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.21007339305892,32.10107446554622,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node5</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.21310882485876,32.104636394957986,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node6</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.212111165456015,32.106235628571426,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node7</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.20797194027441,32.104854472268904,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node8</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.170Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.205764353510894,32.106326494117646,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node9</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.171Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.20154022114608,32.10594485882353,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node10</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.171Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.19805902663438,32.10525428067227,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node11</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.171Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.197400995964486,32.10510889579832,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node12</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.172Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.19351649233253,32.1061811092437,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node13</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.173Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.18950462792575,32.10788938151261,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node14</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.173Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.189568308313156,32.106617263865544,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node15</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.173Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.18869800968523,32.104927164705884,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node16</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.173Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.187594216303474,32.10378225882353,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Node17</name> 
+      <TimeStamp>
+		<when>2020-01-21T20:24:15.173Z</when> 
+      </TimeStamp>
+      <styleUrl>#paddle-a</styleUrl>
+      <Point>
+        <coordinates>35.19381366747377,32.102419275630254,0.0,0</coordinates>
+      </Point>
+    </Placemark>
+    </Folder> 
+
+<Placemark>
+<name> Graph Edges</name>
+ <LineString>
+  <coordinates>
+35.19589389346247,32.1015287 35.20319591121872,32.1031825 35.20752617756255,32.1025646 35.21007339305892,32.1010744 35.21310882485876,32.1046363 35.212111165456015,32.106235 35.20797194027441,32.1048544 35.205764353510894,32.106326 35.20154022114608,32.1059448 35.19805902663438,32.1052542 35.197400995964486,32.105108 35.19351649233253,32.1061811 35.18950462792575,32.1078893 35.189568308313156,32.106617 35.18869800968523,32.1049271 35.187594216303474,32.103782 35.19381366747377,32.1024192 
+  </coordinates>
+ </LineString>
+
+ <Style>
+  <LineStyle>
+   <color>#ff0000ff</color>
+	 <width>5</width>
+  </LineStyle>
+ </Style>
+    </Placemark>
+<Placemark>
+<name>Fruit1</name> 
+      <styleUrl>#banana</styleUrl>
+      <Point>
+        <coordinates>35.212669424769075,32.105340746955505,0.0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Fruit2</name> 
+      <styleUrl>#banana</styleUrl>
+      <Point>
+        <coordinates>35.20704629752213,32.105471692111855,0.0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Fruit3</name> 
+      <styleUrl>#banana</styleUrl>
+      <Point>
+        <coordinates>35.2107064115802,32.10181728154006,0.0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Fruit4</name> 
+      <styleUrl>#banana</styleUrl>
+      <Point>
+        <coordinates>35.206679711961414,32.10571613186106,0.0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Fruit5</name> 
+      <styleUrl>#banana</styleUrl>
+      <Point>
+        <coordinates>35.188900353135324,32.105320110855615,0.0</coordinates>
+      </Point>
+    </Placemark>
+<Placemark>
+<name>Fruit6</name> 
+      <styleUrl>#banana</styleUrl>
+      <Point>
+        <coordinates>35.21120742821597,32.10240519983585,0.0</coordinates>
+      </Point>
+    </Placemark>
+
+ </Document>
+</kml>
