@@ -1,7 +1,6 @@
 package gameClient;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,12 +18,11 @@ import dataStructure.edge_data;
 import dataStructure.node_data;
 import utils.Point3D;
 import utils.StdDraw;
-import Server.Game_Server;
 
 public class MyGameGUI  implements Runnable  
 {
 	public static double EPS=0.001;
-	private game_service game;
+	private static game_service game;
 	private DGraph g;
 	private Graph_Algo ga;
 	private ArrayList<Robot> robots;
@@ -36,7 +34,6 @@ public class MyGameGUI  implements Runnable
 	private int scenario; //0-23
 	private String type;
 	private MyManageGame m1;
-	private SimpleDB scores;
 
 	public MyGameGUI(KML_logger kml)
 		{
@@ -47,7 +44,6 @@ public class MyGameGUI  implements Runnable
     		 for(int i=0;i<s.length;i++)
     			s[i]=i;
              this.scenario=(Integer)JOptionPane.showInputDialog(null,"Choose a scenario","scenario", JOptionPane.QUESTION_MESSAGE,null,s,null);
-      		Game_Server.login(208935791);
              this.setGame(Game_Server.getServer(scenario)); //update the scenario which chosen
              String graph=getGame().getGraph();
              this.setG(new DGraph());
@@ -74,12 +70,11 @@ public class MyGameGUI  implements Runnable
     			 Mouse();
     		 else
     		 {
-    			 this.m1=new MyManageGame(this);
+    			 setM1(new MyManageGame(this));
     			 getM1().Auto();
     		 }
-    		 this.scores=new SimpleDB();
     		
-    		 drawRobot();    	
+    		 drawRobot();    		
 		}
 	
     public MyGameGUI(game_service game2, int i)
@@ -97,7 +92,6 @@ public class MyGameGUI  implements Runnable
           addRobots(game);
           addFruit(game, null);
        // limit();
-
 	}
 
 	public void initGUI(KML_logger kml)
@@ -136,79 +130,11 @@ public class MyGameGUI  implements Runnable
 		StdDraw.setXscale(minX,maxX);
 		StdDraw.setYscale(minY,maxY);
     }
-    
-    public void drawScores()
-    {
-    	limit();
-    	Object[] s =new Object[11];
-		 for(int i=0;i<s.length;i++)
-			s[i]=i;
-      int level=(Integer)JOptionPane.showInputDialog(null,"Choose level ","scores", JOptionPane.QUESTION_MESSAGE,null,s,null);
-   	Font font = new Font("Arial", Font.BOLD, 16);  
-    	StdDraw.setCanvasSize(280,280);
-    	StdDraw.setXscale(minX,maxX);
-		StdDraw.setYscale(minY,maxY);
-    	StdDraw.picture((minX+maxX)/2,(minY+maxY)/2,"background.png");
-    	StdDraw.setPenColor(Color.WHITE);
-    	StdDraw.setPenRadius(0.05); 
-    	StdDraw.setFont(font);
-    	StdDraw.text(minX+(maxX-minX)*0.5,minY+(maxY-minY)*0.95, "Scores:");
-    	StdDraw.text(minX+(maxX-minX)*0.3,minY+(maxY-minY)*0.80, "Our current level: "+SimpleDB.CurrentStage("208935791"));
-    	StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.70, "Number of games played: "+SimpleDB.GamesPlayed("208935791"));
-        switch(level)
-        {
-        case 0: 
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 0: "+SimpleDB.BestResult(0,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(0));
-        break;
-        case 1:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 1: "+SimpleDB.BestResult(1,"208935791")); 
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(1));
-        break;
-        case 2:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 2: "+SimpleDB.BestResult(3,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(3));
-        break;
-        case 3: 
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 3: "+SimpleDB.BestResult(5,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(5));
-        break;
-        case 4:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 4: "+SimpleDB.BestResult(9,"208935791")); 
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(9));
-        break;
-        case 5:
-        StdDraw.text(minX+(maxX-minX)*0.44,minY+(maxY-minY)*0.60, "best scored of the level 5: "+SimpleDB.BestResult(11,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(11));
-        break;
-        case 6:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 6: "+SimpleDB.BestResult(13,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(13));
-        break;
-        case 7:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 7: "+SimpleDB.BestResult(16,"208935791")); 
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(16));
-        break;
-        case 8:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 8: "+SimpleDB.BestResult(19,"208935791")); 
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(19));
-        break;
-        case 9:
-        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 9: "+SimpleDB.BestResult(20,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(20));
-        break;
-        case 10:
-        StdDraw.text(minX+(maxX-minX)*0.44,minY+(maxY-minY)*0.60, "best scored of the level 10: "+SimpleDB.BestResult(23,"208935791"));
-        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(23));
-        break;
-        }
-    	StdDraw.show();
-    }
 	
 	public void drawS() 
 	{	
 		StdDraw.picture((minX+maxX)/2,(minY+maxY)/2,"background.png");
-	    Iterator<node_data> verticles=getG().getV().iterator();
+	Iterator<node_data> verticles=getG().getV().iterator();
 		while(verticles.hasNext()) 
 		{
 			int point=verticles.next().getKey();
@@ -237,12 +163,12 @@ public class MyGameGUI  implements Runnable
 					StdDraw.line(xSRC,ySRC,xDEST,yDEST);
 					StdDraw.text(xSRC+(xDEST-xSRC)/4,ySRC+(yDEST-ySRC)/4,(""+weight));
 					StdDraw.setPenColor(Color.YELLOW);
-					StdDraw.setPenRadius(0.011);
+					StdDraw.setPenRadius(0.014);
 					StdDraw.point(xDEST+(xSRC-xDEST)/10,yDEST+(ySRC-yDEST)/10);
 				}
 				
 				long time=getGame().timeToEnd();
-				StdDraw.setPenColor(Color.white);
+				StdDraw.setPenColor(Color.BLACK);
 				StdDraw.setPenRadius(0.020); 
 				StdDraw.text(minX+(maxX-minX)*0.85,minY+(maxY-minY)*0.95, "The time is:"+time/1000);
 				StdDraw.text(minX+(maxX-minX)*0.15,minY+(maxY-minY)*0.95, "Level:"+scenario);
@@ -315,19 +241,7 @@ public class MyGameGUI  implements Runnable
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			for(int i=0;i<fruits.size();i++)
-			{
-				for(int j=fruits.size()-1;j>i;j--)
-				{
-					if(fruits.get(j).value>fruits.get(j-1).value)
-					{
-						myFruits temp=fruits.get(j);
-						fruits.set(j, fruits.get(j-1));
-						fruits.set(j-1, temp);
-					}
-				}
-			}
-
+			
 		}
 }
 	
@@ -338,7 +252,7 @@ public class MyGameGUI  implements Runnable
 			myFruits fruit=getFruits().get(i);
 			boolean type=fruit.whichfruit;
 			Point3D pos=fruit.pos;
-			if(type==true)
+			if(type==false)
 			{
 				KML_logger.fillFruit(kml.fw, pos.toString(),"apple");
 				StdDraw.picture(pos.x(), pos.y(),"apple.png", 0.0004, 0.0004);
@@ -438,6 +352,7 @@ public class MyGameGUI  implements Runnable
 		this.getGa().init(getG());
 	}
 	
+
     public void run(KML_logger kml)
 	{	
 		game.startGame();
@@ -450,28 +365,24 @@ public class MyGameGUI  implements Runnable
 				synchronized(this) 
 				{
 					if(type=="automatic")
-					{
-
 						 this.getM1().moveRobotsAuto(kml);
-					}
 					else	
 					moveRobotsManual();
 					initGUI(kml);
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 				}
-	             
+				try
+				{
+					Thread.sleep(100);
+				}
+				catch(InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 		}		
-		 this.getM1().update(game, fruits, robots);
 		String results = game.toString();
 		System.out.println("Game Over: "+results);
 	}
-	    
-    public static void main(String[] args) 
+	public static void main(String[] args) throws IOException 
 	{
 		KML_logger kml = null;
 		try {
@@ -486,15 +397,18 @@ public class MyGameGUI  implements Runnable
 		KML_logger.Styleid(kml.fw,"robot");
 		MyGameGUI my=new MyGameGUI(kml);
 	    my.run(kml);
-		my.drawScores();
 	    //KML_logger.closeKMLFolder(kml.fw);	
 		//KML_logger.migrationPath(kml.fw,KML_logger.Coordinates);
 		try {
 			kml.closekml();
+			String kmlData=KML_logger.readFile();
+			game.sendKML(kmlData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 	}
 
 	public game_service getGame() {
