@@ -26,3 +26,11 @@ and this is the final screen:
 
 ![](https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.0-9/82643907_2741991509201871_1537314721047248896_n.jpg?_nc_cat=104&_nc_ohc=XxtWDaN5EH0AX9-zfvH&_nc_ht=scontent.fsdv3-1.fna&oh=3bdd22d3b3e961a2d26f60072479c061&oe=5EA0E831)
 
+when the game stops, this message appears:
+
+![](https://scontent.fsdv2-1.fna.fbcdn.net/v/t1.0-9/82631442_2757698544297834_6833337068660195328_n.jpg?_nc_cat=111&_nc_ohc=ILge-UgKDpUAX8HfZGy&_nc_ht=scontent.fsdv2-1.fna&oh=c40216bb701aa76bbf79db5e7eb2de51&oe=5EDB270C)
+
+the player sholud choose level for watching the scores. after the choose, this message appears:
+
+![](https://scontent.fsdv2-1.fna.fbcdn.net/v/t1.0-9/82780265_2757698584297830_7594171180613894144_n.jpg?_nc_cat=104&_nc_ohc=K9ai-vdXdZ4AX-qOiy9&_nc_ht=scontent.fsdv2-1.fna&oh=7d8e789b574f1904c298c03aa17a2b28&oe=5E9FDB93)
+
