@@ -1,6 +1,7 @@
 package gameClient;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,6 +36,7 @@ public class MyGameGUI  implements Runnable
 	private int scenario; //0-23
 	private String type;
 	private MyManageGame m1;
+	private SimpleDB scores;
 
 	public MyGameGUI(KML_logger kml)
 		{
@@ -75,6 +77,7 @@ public class MyGameGUI  implements Runnable
     			 this.m1=new MyManageGame(this);
     			 getM1().Auto();
     		 }
+    		 this.scores=new SimpleDB();
     		
     		 drawRobot();    	
 		}
@@ -137,27 +140,68 @@ public class MyGameGUI  implements Runnable
     public void drawScores()
     {
     	limit();
-    	StdDraw.setCanvasSize(280,400);
+    	Object[] s =new Object[11];
+		 for(int i=0;i<s.length;i++)
+			s[i]=i;
+      int level=(Integer)JOptionPane.showInputDialog(null,"Choose level ","scores", JOptionPane.QUESTION_MESSAGE,null,s,null);
+   	Font font = new Font("Arial", Font.BOLD, 16);  
+    	StdDraw.setCanvasSize(280,280);
     	StdDraw.setXscale(minX,maxX);
 		StdDraw.setYscale(minY,maxY);
     	StdDraw.picture((minX+maxX)/2,(minY+maxY)/2,"background.png");
     	StdDraw.setPenColor(Color.WHITE);
+    	StdDraw.setPenRadius(0.05); 
+    	StdDraw.setFont(font);
     	StdDraw.text(minX+(maxX-minX)*0.5,minY+(maxY-minY)*0.95, "Scores:");
-    	StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.85, "Our current level:");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.80, "Number of games played:");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.75, "best scored of the level: 0 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.70, "best scored of the level: 1 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.65, "best scored of the level: 2 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.60, "best scored of the level: 3 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.55, "best scored of the level: 4 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.50, "best scored of the level: 5 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.45, "best scored of the level: 6 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.40, "best scored of the level: 7 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.35, "best scored of the level: 8 ");
-    	StdDraw.text(minX+(maxX-minX)*0.33,minY+(maxY-minY)*0.30, "best scored of the level: 9 ");
-    	StdDraw.text(minX+(maxX-minX)*0.34,minY+(maxY-minY)*0.25, "best scored of the level: 10 ");
-    	StdDraw.text(minX+(maxX-minX)*0.34,minY+(maxY-minY)*0.20, "best scored of the level: 11 ");
-
+    	StdDraw.text(minX+(maxX-minX)*0.3,minY+(maxY-minY)*0.80, "Our current level: "+SimpleDB.CurrentStage("208935791"));
+    	StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.70, "Number of games played: "+SimpleDB.GamesPlayed("208935791"));
+        switch(level)
+        {
+        case 0: 
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 0: "+SimpleDB.BestResult(0,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(0));
+        break;
+        case 1:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 1: "+SimpleDB.BestResult(1,"208935791")); 
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(1));
+        break;
+        case 2:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 2: "+SimpleDB.BestResult(3,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(3));
+        break;
+        case 3: 
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 3: "+SimpleDB.BestResult(5,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(5));
+        break;
+        case 4:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 4: "+SimpleDB.BestResult(9,"208935791")); 
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(9));
+        break;
+        case 5:
+        StdDraw.text(minX+(maxX-minX)*0.44,minY+(maxY-minY)*0.60, "best scored of the level 5: "+SimpleDB.BestResult(11,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(11));
+        break;
+        case 6:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 6: "+SimpleDB.BestResult(13,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(13));
+        break;
+        case 7:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 7: "+SimpleDB.BestResult(16,"208935791")); 
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(16));
+        break;
+        case 8:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 8: "+SimpleDB.BestResult(19,"208935791")); 
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(19));
+        break;
+        case 9:
+        StdDraw.text(minX+(maxX-minX)*0.42,minY+(maxY-minY)*0.60, "best scored of the level 9: "+SimpleDB.BestResult(20,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(20));
+        break;
+        case 10:
+        StdDraw.text(minX+(maxX-minX)*0.44,minY+(maxY-minY)*0.60, "best scored of the level 10: "+SimpleDB.BestResult(23,"208935791"));
+        StdDraw.text(minX+(maxX-minX)*0.21,minY+(maxY-minY)*0.50, "our place: "+SimpleDB.StageRank(23));
+        break;
+        }
     	StdDraw.show();
     }
 	
@@ -198,7 +242,7 @@ public class MyGameGUI  implements Runnable
 				}
 				
 				long time=getGame().timeToEnd();
-				StdDraw.setPenColor(Color.BLACK);
+				StdDraw.setPenColor(Color.white);
 				StdDraw.setPenRadius(0.020); 
 				StdDraw.text(minX+(maxX-minX)*0.85,minY+(maxY-minY)*0.95, "The time is:"+time/1000);
 				StdDraw.text(minX+(maxX-minX)*0.15,minY+(maxY-minY)*0.95, "Level:"+scenario);
@@ -394,7 +438,6 @@ public class MyGameGUI  implements Runnable
 		this.getGa().init(getG());
 	}
 	
-
     public void run(KML_logger kml)
 	{	
 		game.startGame();
@@ -427,8 +470,7 @@ public class MyGameGUI  implements Runnable
 		String results = game.toString();
 		System.out.println("Game Over: "+results);
 	}
-	
-    
+	    
     public static void main(String[] args) 
 	{
 		KML_logger kml = null;
@@ -443,9 +485,8 @@ public class MyGameGUI  implements Runnable
 		KML_logger.Styleid(kml.fw,"banana");
 		KML_logger.Styleid(kml.fw,"robot");
 		MyGameGUI my=new MyGameGUI(kml);
-	   // my.run(kml);
+	    my.run(kml);
 		my.drawScores();
-		//my.run1();
 	    //KML_logger.closeKMLFolder(kml.fw);	
 		//KML_logger.migrationPath(kml.fw,KML_logger.Coordinates);
 		try {

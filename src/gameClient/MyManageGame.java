@@ -50,12 +50,14 @@ public class MyManageGame
 		int index=0;int v;
 		while(countFruit>0&&countRobot>0)//put the robot near to the fruit
 		{
-			if(this.my.getFruits().get(index).whichfruit==false)
+			if(this.my.getFruits().get(index).whichfruit==false)    
 				v=this.my.getFruits().get(index).edge(this.my.getG()).getSrc();
 			else
 				v=this.my.getFruits().get(index).edge(this.my.getG()).getDest();
 			this.my.getGame().addRobot(v);
-			countFruit--;countRobot--;index++;
+			countFruit--;
+			countRobot--;
+			index++;
 		}
 		//Create a list of the edge
 		int numOfVer=this.my.getG().nodeSize();
@@ -75,7 +77,7 @@ public class MyManageGame
 		my.addRobots(this.my.getGame());
 	}
 	
-	public  void moveRobotsAuto(KML_logger kml)
+	public void moveRobotsAuto(KML_logger kml)
 	{
 		List<Integer> destList = new ArrayList<Integer>();
 		List<String> log = this.my.getGame().move();
