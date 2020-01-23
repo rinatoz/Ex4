@@ -24,7 +24,7 @@ every step of the robots he choose by this message:
 
 and this is the final screen:
 
-![](https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.0-9/82643907_2741991509201871_1537314721047248896_n.jpg?_nc_cat=104&_nc_ohc=XxtWDaN5EH0AX9-zfvH&_nc_ht=scontent.fsdv3-1.fna&oh=3bdd22d3b3e961a2d26f60072479c061&oe=5EA0E831)
+![](https://scontent.fsdv2-1.fna.fbcdn.net/v/t1.0-9/83229031_2754731521261203_1884422377203302400_n.jpg?_nc_cat=103&_nc_ohc=EVdD6wKJob0AX__qWl8&_nc_ht=scontent.fsdv2-1.fna&oh=f66bb73f5c5334ba68e4d38940b26cd3&oe=5ECA3CC2)
 
 when the game stops, this message appears:
 
